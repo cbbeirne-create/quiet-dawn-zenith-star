@@ -15,6 +15,7 @@ type State = {
   toggleDoc: (appId: string, doc: string) => void;
   addUploadedDocument: (appId: string, document: UploadedDocument) => void;
   removeUploadedDocument: (appId: string, documentId: string) => void;
+  toggleStep: (appId: string, step: string) => void;
   setStatus: (appId: string, status: ApplicationStatus) => void;
   reset: () => void;
 };
@@ -49,7 +50,7 @@ export const useT4 = create<State>()(
         const app: GrantApplication = {
           id: uid(), grantId, status: "draft",
           sections: (grant?.sections ?? []).map((s) => ({ id: s.id, title: s.title, content: "" })),
-          checkedDocs: [], uploadedDocuments: [], notes: "", createdAt: now, updatedAt: now,
+          checkedDocs: [], uploadedDocuments: [], completedSteps: [], notes: "", createdAt: now, updatedAt: now,
         };
         set((s) => ({ applications: [app, ...s.applications] }));
         return app;
@@ -59,6 +60,11 @@ export const useT4 = create<State>()(
       toggleDoc: (appId, doc) => set((s) => ({ applications: s.applications.map((a) => a.id === appId ? { ...a, updatedAt: new Date().toISOString(), checkedDocs: a.checkedDocs.includes(doc) ? a.checkedDocs.filter((d) => d !== doc) : [...a.checkedDocs, doc] } : a) })),
       addUploadedDocument: (appId, document) => set((s) => ({ applications: s.applications.map((a) => a.id === appId ? { ...a, updatedAt: new Date().toISOString(), uploadedDocuments: [...(a.uploadedDocuments ?? []), document] } : a) })),
       removeUploadedDocument: (appId, documentId) => set((s) => ({ applications: s.applications.map((a) => a.id === appId ? { ...a, updatedAt: new Date().toISOString(), uploadedDocuments: (a.uploadedDocuments ?? []).filter((d) => d.id !== documentId) } : a) })),
+      toggleStep: (appId, step) => set((s) => ({ applications: s.applications.map((a) => {
+        if (a.id !== appId) return a;
+        const steps = a.completedSteps ?? [];
+        return { ...a, completedSteps: steps.includes(step) ? steps.filter((x) => x !== step) : [...steps, step], updatedAt: new Date().toISOString() };
+      }) })),
       setStatus: (appId, status) => set((s) => ({ applications: s.applications.map((a) => a.id === appId ? { ...a, status, updatedAt: new Date().toISOString() } : a) })),
       reset: () => set({ profile: null, applications: [], savedIds: [] }),
     }),
