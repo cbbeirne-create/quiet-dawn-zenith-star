@@ -13,13 +13,34 @@ const base: GrantApplication = {
   ], checkedDocs: ["Accounts"], uploadedDocuments: [], notes: "", createdAt: "", updatedAt: "",
 };
 
+const profile = {
+  companyName: "Test Co",
+  form: "limited",
+  stage: "established",
+  employees: 5,
+  tradingMonths: 24,
+  region: "dublin",
+  county: "Dublin",
+  sector: "software",
+  goals: ["digital"],
+  eiClient: false,
+  description: "A real description",
+};
+
 describe("getApplicationReadiness", () => {
-  it("scores sections and documents and identifies gaps", () => {
-    const result = getApplicationReadiness(base, grant, { companyName: "Test Co", description: "A real description" } as never);
+  it("scores sections, documents and profile and identifies gaps", () => {
+    const result = getApplicationReadiness(base, grant, profile);
     expect(result.completedSections).toBe(1);
     expect(result.readyDocuments).toBe(1);
+    expect(result.profileCompletion).toBe(100);
     expect(result.missingSections).toEqual(["Summary"]);
     expect(result.missingDocuments).toEqual(["Business plan"]);
+    expect(result.score).toBe(55);
+  });
+
+  it("handles a missing profile without throwing", () => {
+    const result = getApplicationReadiness(base, grant, null);
+    expect(result.profileCompletion).toBe(0);
     expect(result.score).toBe(45);
   });
 });
