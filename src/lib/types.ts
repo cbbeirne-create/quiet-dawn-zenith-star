@@ -108,12 +108,21 @@ export type AppSection = {
   content: string;
 };
 
+export type UploadedDocument = {
+  id: string;
+  name: string;
+  size: number;
+  type: string;
+  addedAt: string;
+};
+
 export type GrantApplication = {
   id: string;
   grantId: string;
   status: ApplicationStatus;
   sections: AppSection[];
   checkedDocs: string[];
+  uploadedDocuments: UploadedDocument[];
   notes: string;
   createdAt: string;
   updatedAt: string;
