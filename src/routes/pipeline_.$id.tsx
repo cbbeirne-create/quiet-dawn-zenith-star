@@ -57,7 +57,7 @@ function AppWorkspace() {
   function download() { downloadText(`${grant?.shortName ?? "draft"}.txt`, draftPlainText(current, profile)); }
   function addFiles(files: FileList | null) {
     if (!files) return;
-    Array.from(files).forEach((file) => addUploadedDocument(app.id, { id: `${Date.now()}-${file.name}`, name: file.name, size: file.size, type: file.type || "application/octet-stream", addedAt: new Date().toISOString() }));
+    Array.from(files).forEach((file) => addUploadedDocument(appId, { id: `${Date.now()}-${file.name}`, name: file.name, size: file.size, type: file.type || "application/octet-stream", addedAt: new Date().toISOString() }));
   }
 
   return <Shell>
