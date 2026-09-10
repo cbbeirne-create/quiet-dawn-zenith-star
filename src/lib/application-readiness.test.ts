@@ -7,10 +7,23 @@ const grant = {
 } as Grant;
 
 const base: GrantApplication = {
-  id: "1", grantId: "g", status: "draft", sections: [
+  id: "1",
+  grantId: "g",
+  status: "draft",
+  sections: [
     { id: "a", title: "Summary", content: "" },
-    { id: "b", title: "Budget", content: "A sufficiently detailed budget description that is long enough to count as completed." },
-  ], checkedDocs: ["Accounts"], uploadedDocuments: [], notes: "", createdAt: "", updatedAt: "",
+    {
+      id: "b",
+      title: "Budget",
+      content:
+        "A sufficiently detailed budget description that is long enough to count as completed.",
+    },
+  ],
+  checkedDocs: ["Accounts"],
+  uploadedDocuments: [],
+  notes: "",
+  createdAt: "",
+  updatedAt: "",
 };
 
 const profile = {
@@ -30,6 +43,7 @@ const profile = {
 describe("getApplicationReadiness", () => {
   it("scores sections, documents and profile and identifies gaps", () => {
     const result = getApplicationReadiness(base, grant, profile);
+
     expect(result.completedSections).toBe(1);
     expect(result.readyDocuments).toBe(1);
     expect(result.profileCompletion).toBe(100);
@@ -40,7 +54,21 @@ describe("getApplicationReadiness", () => {
 
   it("handles a missing profile without throwing", () => {
     const result = getApplicationReadiness(base, grant, null);
+
     expect(result.profileCompletion).toBe(0);
     expect(result.score).toBe(45);
+  });
+
+  it("remains compatible with older persisted applications", () => {
+    const legacy = {
+      ...base,
+      uploadedDocuments: undefined,
+      completedSteps: undefined,
+    } as GrantApplication;
+
+    const result = getApplicationReadiness(legacy, grant, profile);
+
+    expect(result.score).toBe(55);
+    expect(result.readyDocuments).toBe(1);
   });
 });
