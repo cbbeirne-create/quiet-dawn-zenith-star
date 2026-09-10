@@ -1,4 +1,5 @@
-import { describe, expect, it } from "vitest";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
 import { getApplicationReadiness } from "./application-readiness";
 import type { Grant, GrantApplication } from "./types";
 
@@ -28,14 +29,14 @@ const base: GrantApplication = {
 
 const profile = {
   companyName: "Test Co",
-  form: "limited",
-  stage: "established",
+  form: "limited" as const,
+  stage: "established" as const,
   employees: 5,
   tradingMonths: 24,
-  region: "dublin",
+  region: "dublin" as const,
   county: "Dublin",
-  sector: "software",
-  goals: ["digital"],
+  sector: "software" as const,
+  goals: ["digital" as const],
   eiClient: false,
   description: "A real description",
 };
@@ -44,19 +45,19 @@ describe("getApplicationReadiness", () => {
   it("scores sections, documents and profile and identifies gaps", () => {
     const result = getApplicationReadiness(base, grant, profile);
 
-    expect(result.completedSections).toBe(1);
-    expect(result.readyDocuments).toBe(1);
-    expect(result.profileCompletion).toBe(100);
-    expect(result.missingSections).toEqual(["Summary"]);
-    expect(result.missingDocuments).toEqual(["Business plan"]);
-    expect(result.score).toBe(55);
+    assert.equal(result.completedSections, 1);
+    assert.equal(result.readyDocuments, 1);
+    assert.equal(result.profileCompletion, 100);
+    assert.deepEqual(result.missingSections, ["Summary"]);
+    assert.deepEqual(result.missingDocuments, ["Business plan"]);
+    assert.equal(result.score, 55);
   });
 
   it("handles a missing profile without throwing", () => {
     const result = getApplicationReadiness(base, grant, null);
 
-    expect(result.profileCompletion).toBe(0);
-    expect(result.score).toBe(45);
+    assert.equal(result.profileCompletion, 0);
+    assert.equal(result.score, 45);
   });
 
   it("remains compatible with older persisted applications", () => {
@@ -68,7 +69,7 @@ describe("getApplicationReadiness", () => {
 
     const result = getApplicationReadiness(legacy, grant, profile);
 
-    expect(result.score).toBe(55);
-    expect(result.readyDocuments).toBe(1);
+    assert.equal(result.score, 55);
+    assert.equal(result.readyDocuments, 1);
   });
 });
