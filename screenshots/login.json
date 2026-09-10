@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/login",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "T4 Grants",
+      "hasCanvas": false,
+      "bodyTextLen": 269,
+      "bodyTextHash": "ec28b63e6fb0c1128b0f74debceacebe8adde8e7435c17582a9584afc54188eb",
+      "bodyTextPrefix": "T4 Sign in Save matches and drafts across devices. Catalogue and",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/login.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "T4 Grants",
+      "hasCanvas": false,
+      "bodyTextLen": 269,
+      "bodyTextHash": "ec28b63e6fb0c1128b0f74debceacebe8adde8e7435c17582a9584afc54188eb",
+      "bodyTextPrefix": "T4 Sign in Save matches and drafts across devices. Catalogue and",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/login-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/login.json"
+}

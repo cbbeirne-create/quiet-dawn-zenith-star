@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/match?demo=true",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "T4 Grants",
+      "hasCanvas": false,
+      "bodyTextLen": 11807,
+      "bodyTextHash": "5428d45360afc39778200e4bd190441a86e94cf9cfad375720b0210e243c3b99",
+      "bodyTextPrefix": "T4 GRANTS Overview Match Catalogue Workspace Intelligence Start ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/match-demo.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "T4 Grants",
+      "hasCanvas": false,
+      "bodyTextLen": 11841,
+      "bodyTextHash": "280176ffb2210a6a46cfa2f508a45332f53fbd2d0297fa66b215ad9811ca411b",
+      "bodyTextPrefix": "Demo workspace seeded with three drafts. T4 GRANTS Sign in Overv",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/match-demo-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/match-demo.json"
+}

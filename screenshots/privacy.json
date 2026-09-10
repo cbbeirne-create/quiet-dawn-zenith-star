@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/privacy",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "T4 Grants",
+      "hasCanvas": false,
+      "bodyTextLen": 1354,
+      "bodyTextHash": "ffa56060c5edce55cde971dee8044d40f53cdd5425f59b6b8a199ac66eec3732",
+      "bodyTextPrefix": "T4 GRANTS Overview Match Catalogue Workspace Intelligence Sign i",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/privacy.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "T4 Grants",
+      "hasCanvas": false,
+      "bodyTextLen": 1339,
+      "bodyTextHash": "ed121489f713dae14def68ded75e141bff71e0e0903c86526a15c10fd677a6d1",
+      "bodyTextPrefix": "T4 GRANTS Sign in Overview Match Catalogue Workspace Intelligenc",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/privacy-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/privacy.json"
+}

@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "T4 Grants",
+      "hasCanvas": false,
+      "bodyTextLen": 2949,
+      "bodyTextHash": "8a5d8a318c9fe5542a6541aa55e80f5457bbac52b47ad85d87f8b659085eb4ce",
+      "bodyTextPrefix": "T4 GRANTS Overview Match Catalogue Workspace Intelligence Start ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/home.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "T4 Grants",
+      "hasCanvas": false,
+      "bodyTextLen": 2934,
+      "bodyTextHash": "240788ead6298f963937ebdeb146cafad910a95c66c29105677960183f935a54",
+      "bodyTextPrefix": "T4 GRANTS Overview Match Catalogue Workspace Intelligence IRISH ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/home-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/home.json"
+}

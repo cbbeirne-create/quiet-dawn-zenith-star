@@ -1,0 +1,1 @@
+function e(e){return e===0?`—`:new Intl.NumberFormat(`en-IE`,{style:`currency`,currency:`EUR`,maximumFractionDigits:0}).format(e)}function t(e){return`${Math.round(e*100)}%`}function n(e){return e===`straightforward`?`Straightforward`:e===`moderate`?`Moderate`:`Competitive`}export{e as n,t as r,n as t};

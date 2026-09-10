@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/stand",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "T4 Grants",
+      "hasCanvas": false,
+      "bodyTextLen": 2183,
+      "bodyTextHash": "a95bbcf5019c647e1257d2016d15772a4ae349382aa5f893c73d48986c0988b5",
+      "bodyTextPrefix": "T4 GRANTS Overview Match Catalogue Workspace Intelligence Sign i",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/stand.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "T4 Grants",
+      "hasCanvas": false,
+      "bodyTextLen": 2168,
+      "bodyTextHash": "1991cbe2bd97eb3eda8577689b646a6d95e9716b9808cb48aeda036ecc16e9b2",
+      "bodyTextPrefix": "T4 GRANTS Sign in Overview Match Catalogue Workspace Intelligenc",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/stand-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/stand.json"
+}

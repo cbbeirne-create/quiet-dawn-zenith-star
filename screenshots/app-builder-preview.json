@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "T4 Grants",
+      "hasCanvas": false,
+      "bodyTextLen": 2999,
+      "bodyTextHash": "a06c5f2ab57ca3024bb64b9affc66f1245531c6c66c6c3856d079b0e32fa1acd",
+      "bodyTextPrefix": "T4 GRANTS Overview Match Catalogue Workspace Intelligence Start ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "T4 Grants",
+      "hasCanvas": false,
+      "bodyTextLen": 2999,
+      "bodyTextHash": "0e60b6a745b01c269583d39185512e0d15ca118a614acaa62d5e87819442909f",
+      "bodyTextPrefix": "T4 GRANTS Start matching Overview Match Catalogue Workspace Inte",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
