@@ -1,50 +1,11 @@
 export type CompanyForm = "sole" | "limited" | "partnership";
 export type CompanyStage = "idea" | "startup" | "established";
-export type Region =
-  | "dublin"
-  | "cork"
-  | "galway"
-  | "limerick"
-  | "bmw"
-  | "other";
-export type Sector =
-  | "software"
-  | "manufacturing"
-  | "food"
-  | "professional"
-  | "retail"
-  | "green"
-  | "tourism"
-  | "creative"
-  | "health"
-  | "construction";
-export type Goal =
-  | "hire"
-  | "equipment"
-  | "digital"
-  | "export"
-  | "rd"
-  | "energy"
-  | "training"
-  | "feasibility";
-
-export type Agency =
-  | "Local Enterprise Office"
-  | "Enterprise Ireland"
-  | "SEAI"
-  | "Revenue"
-  | "Skillnet Ireland"
-  | "Pobal / LEADER"
-  | "Arts Council";
-
+export type Region = "dublin" | "cork" | "galway" | "limerick" | "bmw" | "other";
+export type Sector = "software" | "manufacturing" | "food" | "professional" | "retail" | "green" | "tourism" | "creative" | "health" | "construction";
+export type Goal = "hire" | "equipment" | "digital" | "export" | "rd" | "energy" | "training" | "feasibility";
+export type Agency = "Local Enterprise Office" | "Enterprise Ireland" | "SEAI" | "Revenue" | "Skillnet Ireland" | "Pobal / LEADER" | "Arts Council";
 export type DeadlineKind = "rolling" | "window" | "annual";
-
-export type ApplicationStatus =
-  | "draft"
-  | "in_review"
-  | "submitted"
-  | "awarded"
-  | "declined";
+export type ApplicationStatus = "draft" | "in_review" | "submitted" | "awarded" | "declined";
 
 export type EligibilityRule = {
   id: string;
@@ -89,7 +50,6 @@ export type BusinessProfile = {
   goals: Goal[];
   eiClient: boolean;
   description: string;
-  /** Annual turnover in euro. Null/omitted = unknown — we do not knock out on turnover. */
   turnoverEur?: number | null;
   county?: string;
 };
@@ -102,11 +62,7 @@ export type MatchResult = {
   fitNotes: string[];
 };
 
-export type AppSection = {
-  id: string;
-  title: string;
-  content: string;
-};
+export type AppSection = { id: string; title: string; content: string };
 
 export type UploadedDocument = {
   id: string;
@@ -122,7 +78,8 @@ export type GrantApplication = {
   status: ApplicationStatus;
   sections: AppSection[];
   checkedDocs: string[];
-  uploadedDocuments: UploadedDocument[];
+  /** Optional for backwards compatibility with applications created before the document workspace existed. */
+  uploadedDocuments?: UploadedDocument[];
   notes: string;
   createdAt: string;
   updatedAt: string;
