@@ -51,7 +51,7 @@ function Home() {
           See knockout rules before you waste a week. Draft in a workspace, not
           another PDF.
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link to="/match">
             <Button size="lg">
               Match my company
@@ -61,13 +61,14 @@ function Home() {
           <Button size="lg" variant="outline" onClick={loadDemo}>
             Load demo company
           </Button>
+          <span className="text-sm text-muted">Takes about 5 minutes</span>
         </div>
         <dl className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-4">
           {[
             [String(GRANTS.length), "Schemes in the catalogue"],
             [String(agencies.length), "Awarding bodies"],
             [formatEuro(pool), "Headline support mapped"],
-            ["Knockouts", "Shown before you apply"],
+            ["See knockouts", "Before you apply"],
           ].map(([k, v]) => (
             <div key={v} className="bg-surface px-5 py-6">
               <dt className="font-display text-2xl text-ink">{k}</dt>
@@ -75,6 +76,9 @@ function Home() {
             </div>
           ))}
         </dl>
+        <p className="mt-3 text-xs text-subtle">
+          Catalogue figures are mapped by T4. Confirm current rates, eligibility and deadlines with the awarding body.
+        </p>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-10">
@@ -89,7 +93,7 @@ function Home() {
             {
               icon: PenLine,
               title: "Workspace",
-              body: "Structured sections, document checklists, status, and a Grok draft for the blank page.",
+              body: "Structured sections, document checklists and status — so you know what is ready and what still needs work.",
             },
             {
               icon: LineChart,
@@ -147,10 +151,7 @@ function Home() {
             Innovation Voucher, then Agile — not Grow Digital.
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-pine-soft">
-            Building this product is bespoke software. The voucher funds a
-            knowledge-provider prototype. Agile funds the build once the company
-            is trading. Grow Digital is for off-the-shelf tools, so it is the
-            wrong first ask.
+            Building this product is bespoke software. An Innovation Voucher can support work with a knowledge provider, while Agile can fund the build once the company is trading. Grow Digital is for off-the-shelf tools, so it is the wrong first ask.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link to="/grants/$id" params={{ id: "innovation-voucher" }}>
@@ -166,7 +167,7 @@ function Home() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-6 pb-12">
-        <h2 className="font-display text-2xl md:text-3xl">Covered in this prototype</h2>
+        <h2 className="font-display text-2xl md:text-3xl">Covered in T4</h2>
         <ul className="mt-6 grid gap-2 sm:grid-cols-2">
           {[
             "LEO Feasibility, Priming, Expansion, Grow Digital, Digital for Business",
