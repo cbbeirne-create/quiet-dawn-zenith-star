@@ -98,7 +98,7 @@ function Home() {
             },
           ].map((s) => (
             <div key={s.title} className="rounded-xl border border-border bg-surface p-6">
-              <s.icon className="size-5 text-pine" />
+              <s.icon aria-hidden="true" className="size-5 text-pine" />
               <h3 className="mt-4 font-display text-xl">{s.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">{s.body}</p>
             </div>
@@ -109,7 +109,10 @@ function Home() {
       <section className="mx-auto max-w-6xl px-4 py-6">
         <div className="flex items-end justify-between gap-4">
           <h2 className="font-display text-2xl md:text-3xl">Start with these</h2>
-          <Link to="/grants" className="text-sm text-pine hover:underline">
+          <Link
+            to="/grants"
+            className="rounded-sm text-sm text-pine hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pine"
+          >
             Full catalogue
           </Link>
         </div>
@@ -122,7 +125,8 @@ function Home() {
                 key={id}
                 to="/grants/$id"
                 params={{ id }}
-                className="rounded-xl border border-border bg-surface p-5 transition-colors hover:border-pine/40"
+                aria-label={`${g.shortName} — ${g.agency}`}
+                className="rounded-xl border border-border bg-surface p-5 transition-colors hover:border-pine/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine"
               >
                 <p className="text-xs uppercase tracking-widest text-muted">{g.agency}</p>
                 <h3 className="mt-2 font-display text-xl">{g.shortName}</h3>
@@ -173,7 +177,7 @@ function Home() {
             "Skillnet, MentorsWork, LEADER, Creative Ireland",
           ].map((t) => (
             <li key={t} className="flex items-start gap-2 text-sm text-ink">
-              <Check className="mt-0.5 size-4 shrink-0 text-pine" />
+              <Check aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-pine" />
               {t}
             </li>
           ))}
