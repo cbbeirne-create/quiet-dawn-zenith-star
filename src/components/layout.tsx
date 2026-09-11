@@ -122,7 +122,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <Link to="/stand" className={focusRing + " hover:text-ink"}>
               Standing
             </Link>
-            <span>Prototype. Confirm schemes with the awarding body.</span>
+            <span>Confirm schemes with the awarding body before applying.</span>
           </p>
         </div>
       </footer>
