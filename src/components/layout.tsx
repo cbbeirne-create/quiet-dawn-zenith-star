@@ -13,6 +13,8 @@ const links = [
   { to: "/intelligence", label: "Intelligence" },
 ] as const;
 
+const focusRing = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine";
+
 function AuthSlot() {
   const { user, isPending } = useCurrentUserState();
   if (isPending) {
@@ -21,7 +23,10 @@ function AuthSlot() {
   if (user) {
     return (
       <div className="flex items-center gap-2">
-        <Link to="/account" className="hidden min-h-11 items-center text-sm text-muted hover:text-ink sm:inline-flex">
+        <Link
+          to="/account"
+          className={cn("hidden min-h-11 items-center text-sm text-muted hover:text-ink sm:inline-flex", focusRing)}
+        >
           Account
         </Link>
         <div className="max-w-40 truncate md:max-w-none">
@@ -31,7 +36,10 @@ function AuthSlot() {
     );
   }
   return (
-    <Link to="/login" className="min-h-11 shrink-0 rounded-md px-3 py-2 text-sm text-muted hover:text-ink">
+    <Link
+      to="/login"
+      className={cn("min-h-11 shrink-0 rounded-md px-3 py-2 text-sm text-muted hover:text-ink", focusRing)}
+    >
       Sign in
     </Link>
   );
@@ -46,7 +54,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
       <Toaster position="top-right" richColors={false} />
       <header className="sticky top-0 z-30 border-b border-border/80 bg-bg/90 backdrop-blur-sm">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-          <Link to="/" className="flex items-baseline gap-2">
+          <Link to="/" className={cn("flex items-baseline gap-2", focusRing)}>
             <span className="font-display text-2xl font-medium tracking-tight">T4</span>
             <span className="text-xs font-medium uppercase tracking-widest text-muted">Grants</span>
           </Link>
@@ -60,6 +68,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                   className={cn(
                     "min-h-11 rounded-md px-3 py-2 text-sm transition-colors",
                     active ? "bg-pine-soft text-pine-deep" : "text-muted hover:text-ink",
+                    focusRing,
                   )}
                 >
                   {l.label}
@@ -71,7 +80,10 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <AuthSlot />
             <Link
               to="/match"
-              className="hidden min-h-11 rounded-md bg-pine px-3 py-2 text-sm font-medium text-surface sm:inline-flex sm:items-center"
+              className={cn(
+                "hidden min-h-11 rounded-md bg-pine px-3 py-2 text-sm font-medium text-surface sm:inline-flex sm:items-center",
+                focusRing,
+              )}
             >
               Start matching
             </Link>
@@ -87,6 +99,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                 className={cn(
                   "min-h-11 shrink-0 rounded-full px-3 py-2 text-xs",
                   active ? "bg-pine text-surface" : "border border-border bg-surface text-muted",
+                  focusRing,
                 )}
               >
                 {l.label}
@@ -100,13 +113,13 @@ export function Shell({ children }: { children: React.ReactNode }) {
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-muted md:flex-row md:justify-between">
           <p>T4 Grants — funding operating system for Irish SMEs.</p>
           <p className="flex flex-wrap gap-x-3 gap-y-1">
-            <Link to="/privacy" className="hover:text-ink">
+            <Link to="/privacy" className={focusRing + " hover:text-ink"}>
               Privacy
             </Link>
-            <Link to="/terms" className="hover:text-ink">
+            <Link to="/terms" className={focusRing + " hover:text-ink"}>
               Terms
             </Link>
-            <Link to="/stand" className="hover:text-ink">
+            <Link to="/stand" className={focusRing + " hover:text-ink"}>
               Standing
             </Link>
             <span>Prototype. Confirm schemes with the awarding body.</span>
