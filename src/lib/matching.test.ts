@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { DEMO_PROFILE, matchGrants } from "./matching.ts";
-import { GRANTS, getGrant } from "./grants.ts";
+import { GRANTS } from "./grants.ts";
 import type { BusinessProfile } from "./types.ts";
 
 test("catalogue ids are unique and complete", () => {

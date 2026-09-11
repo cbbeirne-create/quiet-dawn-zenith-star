@@ -8,21 +8,34 @@ const SYSTEM_DRAFT =
 const SYSTEM_BRIEF =
   "You are a grants advisor for Irish SMEs. Give a short action plan: top 3 schemes to start with, in order, with one sentence why and the first practical step. No emoji. Do not invent rates. Remind them to confirm with the awarding body. Not legal advice.";
 
+type ChatResponse = {
+  choices?: { message?: { content?: string } }[];
+};
+
+function getAiConfig() {
+  const apiKey = process.env.AI_API_KEY;
+  const baseUrl = process.env.AI_BASE_URL?.replace(/\/$/, "");
+  const model = process.env.AI_MODEL;
+
+  if (!apiKey || !baseUrl || !model) return null;
+  return { apiKey, baseUrl, model };
+}
+
 async function chat(userId: string, system: string, prompt: string, maxTokens: number) {
-  const apiKey = process.env.XAI_API_KEY;
-  if (!apiKey) return { ok: false as const, error: "AI is not available in this environment" };
+  const config = getAiConfig();
+  if (!config) return { ok: false as const, error: "AI is not available in this environment" };
 
   const cap = await consumeAiCallForUser(userId);
   if (!cap.ok) return cap;
 
-  const res = await fetch("https://api.x.ai/v1/chat/completions", {
+  const res = await fetch(`${config.baseUrl}/chat/completions`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
+      Authorization: `Bearer ${config.apiKey}`,
     },
     body: JSON.stringify({
-      model: "grok-4.5",
+      model: config.model,
       max_tokens: maxTokens,
       temperature: 0.4,
       messages: [
@@ -31,9 +44,11 @@ async function chat(userId: string, system: string, prompt: string, maxTokens: n
       ],
     }),
   });
-  if (!res.ok) return { ok: false as const, error: `xAI API error ${res.status}` };
-  const body = (await res.json()) as { choices: { message: { content: string } }[] };
-  return { ok: true as const, text: body.choices[0]?.message.content ?? "" };
+
+  if (!res.ok) return { ok: false as const, error: `AI provider error ${res.status}` };
+
+  const body = (await res.json()) as ChatResponse;
+  return { ok: true as const, text: body.choices?.[0]?.message?.content ?? "" };
 }
 
 export const draftSection = createServerFn({ method: "POST" })

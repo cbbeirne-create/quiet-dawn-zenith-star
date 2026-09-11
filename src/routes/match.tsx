@@ -415,6 +415,7 @@ function MatchCard({ m, compact }: { m: MatchResult; compact?: boolean }) {
   const toggle = useT4((s) => s.toggleSaved);
   const start = useT4((s) => s.startApplication);
   const nav = useNavigate();
+  const verified = m.grant.verificationStatus === "verified" && Boolean(m.grant.lastVerifiedAt);
 
   return (
     <article className="rounded-xl border border-border bg-surface p-5">
@@ -423,6 +424,7 @@ function MatchCard({ m, compact }: { m: MatchResult; compact?: boolean }) {
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="font-display text-xl">{m.grant.name}</h3>
             <Badge tone={m.eligible ? "ok" : "warn"}>{m.eligible ? "No knockout" : "Blocked"}</Badge>
+            <Badge tone={verified ? "ok" : "warn"}>{verified ? "Source verified" : "Source review pending"}</Badge>
           </div>
           <p className="mt-1 text-sm text-muted">
             {m.grant.agency} · {m.grant.amountLabel} · {difficultyLabel(m.grant.difficulty)}
