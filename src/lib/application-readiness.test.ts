@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { getApplicationReadiness } from "./application-readiness";
-import type { Grant, GrantApplication } from "./types";
+import { getApplicationReadiness } from "./application-readiness.ts";
+import type { Grant, GrantApplication } from "./types.ts";
 
 const grant = {
   documents: ["Business plan", "Accounts"],
